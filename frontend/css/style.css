@@ -1,0 +1,211 @@
+:root {
+    --app-bg: #eef3f8;
+    --app-surface: rgba(255, 255, 255, 0.96);
+    --app-primary: #123456;
+    --app-primary-dark: #0f2740;
+    --app-accent: #1f7a8c;
+    --app-text: #1f2937;
+    --app-muted: #6b7280;
+    --app-border: rgba(15, 39, 64, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body.app-shell {
+    min-height: 100vh;
+    color: var(--app-text);
+    background:
+        radial-gradient(circle at top left, rgba(31, 122, 140, 0.16), transparent 30%),
+        radial-gradient(circle at right top, rgba(18, 52, 86, 0.14), transparent 28%),
+        linear-gradient(180deg, #f7fafc 0%, var(--app-bg) 100%);
+}
+
+.hero-card {
+    background: linear-gradient(135deg, var(--app-primary) 0%, var(--app-primary-dark) 100%);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-card__content {
+    padding: 1.75rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-text {
+    max-width: 42rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-card__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.stat-pill {
+    min-width: 150px;
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat-pill__label {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.stat-pill__value {
+    display: block;
+    margin-top: 0.25rem;
+    font-weight: 600;
+}
+
+.card {
+    background: var(--app-surface);
+    border: 1px solid var(--app-border);
+    backdrop-filter: blur(10px);
+}
+
+.form-label {
+    color: var(--app-primary-dark);
+}
+
+.form-control,
+.form-select {
+    border-color: rgba(15, 39, 64, 0.18);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--app-accent);
+    box-shadow: 0 0 0 0.2rem rgba(31, 122, 140, 0.14);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--app-primary);
+    --bs-btn-border-color: var(--app-primary);
+    --bs-btn-hover-bg: var(--app-primary-dark);
+    --bs-btn-hover-border-color: var(--app-primary-dark);
+    --bs-btn-active-bg: var(--app-primary-dark);
+    --bs-btn-active-border-color: var(--app-primary-dark);
+}
+
+.btn-outline-secondary {
+    --bs-btn-color: var(--app-primary-dark);
+    --bs-btn-border-color: rgba(15, 39, 64, 0.28);
+    --bs-btn-hover-bg: rgba(15, 39, 64, 0.08);
+    --bs-btn-hover-border-color: rgba(15, 39, 64, 0.36);
+    --bs-btn-active-bg: rgba(15, 39, 64, 0.12);
+}
+
+.corporate-table {
+    margin-bottom: 0;
+}
+
+.corporate-table thead th {
+    background: #f3f6fb;
+    color: var(--app-primary-dark);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--app-border);
+    white-space: nowrap;
+}
+
+.corporate-table tbody td {
+    vertical-align: middle;
+    border-color: rgba(15, 39, 64, 0.08);
+}
+
+.corporate-table tbody tr:hover {
+    background-color: rgba(31, 122, 140, 0.04);
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 95px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+}
+
+.status-renovada {
+    --bs-badge-color: #0f5132;
+    --bs-badge-bg: #d1e7dd;
+}
+
+.status-vigente {
+    --bs-badge-color: #664d03;
+    --bs-badge-bg: #fff3cd;
+}
+
+.status-vencida {
+    --bs-badge-color: #842029;
+    --bs-badge-bg: #f8d7da;
+}
+
+.status-por_vencer {
+    --bs-badge-color: #664d03;
+    --bs-badge-bg: #ffe69c;
+}
+
+.gestion-row td {
+    background: #f8fbfd;
+    border-top: 0;
+}
+
+.gestion-panel {
+    padding: 1rem;
+    border: 1px solid var(--app-border);
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.gestion-panel .form-label {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 991.98px) {
+    .hero-card__content {
+        padding: 1.25rem;
+    }
+
+    .stat-pill {
+        flex: 1 1 180px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-card {
+        border-radius: 1.25rem !important;
+    }
+
+    .hero-card__content {
+        padding: 1rem;
+    }
+
+    .status-badge {
+        min-width: 84px;
+    }
+}
