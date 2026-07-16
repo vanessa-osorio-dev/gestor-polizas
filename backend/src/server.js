@@ -9,6 +9,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Servir archivos estáticos del frontend
+app.use(express.static(path.join(__dirname, '../../frontend')));
+
 const PORT = process.env.PORT || 3000;
 
 

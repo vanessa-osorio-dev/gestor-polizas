@@ -1,4 +1,4 @@
- export const API_URL = "http://localhost:3000";
+ export const API_URL = "https://gestor-polizas-efai.onrender.com";
 
 export function cargarPolizas(filtroEstado = '') {
     fetch(`${API_URL}/polizas`)
