@@ -1,97 +1,215 @@
-# prueba_polizas
+# 🛡️ gestor polizas
 
-Aplicación para gestión de pólizas con frontend en HTML/CSS/JavaScript y backend en Node.js + Express, usando SQLite como base de datos.
+Aplicación web Full Stack para la gestión de pólizas de seguros, desarrollada con **HTML**, **CSS**, **JavaScript**, **Node.js**, **Express** y **SQLite**.
 
-## Estructura del proyecto
+El sistema permite administrar clientes, consultar pólizas, actualizar fechas de vigencia y registrar gestiones comerciales mediante una API REST.
 
-- `backend/`: API y acceso a datos.
-- `frontend/`: interfaz web.
-- `backend/database/prueba.db`: base de datos SQLite usada por el backend.
+> **Nota:** Este proyecto fue desarrollado como parte de una prueba técnica y se publica con fines de portafolio para demostrar mis habilidades en el desarrollo Full Stack.
 
-## Requisitos
+---
 
-- Node.js 22
-- npm
-- Base de datos SQLite ubicada en `backend/database/prueba.db`
-- Navegador web moderno
+# 🚀 Demo
 
-## Base de datos
+### 🌐 Frontend
 
-El backend trabaja con una base SQLite ya definida. La estructura principal es:
+https://gestor-polizas-vanessaosorio.netlify.app/
 
-- `asesores`
-- `clientes`
-- `tipos_poliza`
-- `poliza`
-- `gestiones`
-- `poliza_con_estado` (vista)
+### ⚙️ Backend (API)
 
-### Tablas y vista
+https://gestor-polizas-efai.onrender.com
 
-- `asesores`: asesores comerciales.
-- `clientes`: clientes asociados a un asesor.
-- `tipos_poliza`: catálogo de tipos de póliza.
-- `poliza`: pólizas de seguros.
-- `gestiones`: seguimiento comercial de pólizas.
-- `poliza_con_estado`: vista que calcula el estado de la pól automáticamente (vigente, vencida, por_vencer, renovada).
+---
 
-## Instalación y ejecución
+# ✨ Funcionalidades
 
-### Backend
+- Gestión de clientes.
+- Consulta de pólizas.
+- Búsqueda de pólizas por ID.
+- Consulta de pólizas por cliente.
+- Filtro por estado de la póliza.
+- Actualización de fechas de vigencia.
+- Registro de gestiones comerciales.
+- API REST desarrollada con Express.
+- Base de datos SQLite incluida en el proyecto.
 
-1. Ir a la carpeta `backend`:
-   ```bash
-   cd backend
-   ```
+---
 
-2. Instalar dependencias:
-   ```bash
-   npm install
-   ```
+# 🛠️ Tecnologías utilizadas
 
-3. Iniciar el servidor:
-   ```bash
-   npm run dev
-   ```
+- HTML5
+- CSS3
+- JavaScript
+- Node.js
+- Express
+- SQLite
+- REST API
 
-El servidor se iniciará en el puerto 3000 (o el puerto definido en la variable de entorno `PORT`).
+---
 
-### Frontend
-
-- abrir `frontend/index.html` con un servidor estático, por ejemplo Live Server en VS Code.
-
-Si abres el archivo directamente con doble clic, algunos navegadores pueden bloquear peticiones por CORS o por el protocolo `file://`.
-
-## Endpoints disponibles
-
-- `GET /clientes`
-- `GET /polizas`
-- `PUT /polizas/:id`
-- `POST /gestiones`
-
-### `GET /polizas`
-
-Soporta filtros opcionales por query string:
-
-- `id_poliza`
-- `id_cliente`
-- `estado`
-
-Ejemplos:
+# 📂 Estructura del proyecto
 
 ```text
+insurance-policy-management/
+│
+├── backend/
+│   ├── database/
+│   │   └── prueba.db
+│   ├── src/
+│   ├── package.json
+│   └── package-lock.json
+│
+├── frontend/
+│   ├── css/
+│   ├── js/
+│   └── index.html
+│
+└── README.md
+```
+
+---
+
+# 🗄️ Base de datos
+
+El proyecto utiliza una base de datos **SQLite** incluida en el repositorio.
+
+### Tablas
+
+- asesores
+- clientes
+- tipos_poliza
+- poliza
+- gestiones
+
+### Vista
+
+- poliza_con_estado
+
+La vista calcula automáticamente el estado de cada póliza:
+
+- Vigente
+- Por vencer
+- Vencida
+- Renovada
+
+---
+
+# 🔌 API
+
+## Endpoints
+
+| Método | Endpoint | Descripción |
+|---------|----------|-------------|
+| GET | `/clientes` | Obtener todos los clientes |
+| GET | `/polizas` | Obtener todas las pólizas |
+| PUT | `/polizas/:id` | Actualizar una póliza |
+| POST | `/gestiones` | Registrar una gestión |
+
+## Filtros disponibles
+
+```http
 GET /polizas?id_cliente=1
-GET /polizas?estado=vigente
+```
+
+```http
 GET /polizas?id_poliza=10
 ```
 
-## Consideraciones importantes
+```http
+GET /polizas?estado=vigente
+```
 
-- El proyecto está preparado para correr con Node.js 22.
-- El puerto del backend se configura mediante la variable de entorno `PORT` (fallback a 3000).
-- La base de datos SQLite está incluida en el proyecto en `backend/database/prueba.db`.
+---
 
-## 📄 Licencia
+# ⚙️ Instalación
+
+## Clonar el repositorio
+
+```bash
+git clone https://github.com/vanessa-osorio-dev/gestor-polizas.git
+```
+
+## Backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+El servidor se ejecutará en:
+
+```
+http://localhost:3000
+```
+
+## Frontend
+
+Abrir la carpeta **frontend** utilizando **Live Server** en Visual Studio Code.
+
+---
+
+# 🏗️ Arquitectura
+
+```
+                  Usuario
+                      │
+                      ▼
+        Frontend (Netlify)
+                      │
+              Peticiones HTTP
+                      │
+                      ▼
+        Backend (Render)
+                      │
+                      ▼
+         Base de datos SQLite
+```
+
+---
+
+# 📌 Consideraciones
+
+- Compatible con Node.js 22.
+- La base de datos SQLite se incluye con datos de ejemplo para facilitar la evaluación del proyecto.
+
+
+---
+
+## ⚙️ Configuración para desarrollo local
+
+El frontend consume la API mediante la constante `API_URL`.
+
+Para ejecutar el proyecto en tu equipo, asegúrate de que el backend esté iniciado en `http://localhost:3000` y configura la URL de la siguiente manera:
+
+```javascript
+export const API_URL = "http://localhost:3000";
+```
+
+Para utilizar la aplicación desplegada en producción, cambia la URL por la del backend en Render:
+
+```javascript
+export const API_URL = "https://gestor-polizas-efai.onrender.com";
+```
+
+Una vez configurada la URL correspondiente, inicia el backend y ejecuta el frontend con **Live Server** en Visual Studio Code.
+
+---
+
+
+# 👩‍💻 Autor
+
+**Vanessa Osorio Ortiz**
+
+Tecnóloga en Análisis y Desarrollo de Sistemas de Información.
+
+Estudiante de Ingeniería de Software.
+
+GitHub:
+https://github.com/vanessa-osorio-dev
+
+---
+
+# 📄 Licencia
 
 Este proyecto se publica únicamente con fines educativos y de portafolio profesional.
 
