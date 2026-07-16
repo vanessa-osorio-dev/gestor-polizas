@@ -49,7 +49,7 @@ https://gestor-polizas-efai.onrender.com
 # 📂 Estructura del proyecto
 
 ```text
-insurance-policy-management/
+gestor-polizas/
 │
 ├── backend/
 │   ├── database/
